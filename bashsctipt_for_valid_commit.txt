@@ -1,0 +1,13 @@
+#!/bin/bash
+
+commit_msg_file="$1"<br>
+
+#### #Function to check if the commit message contains valid commit types
+check_commit_type() {<br>
+    local commit_msg="$1"<br>
+    if [[ ! "$commit_msg" =~ ^(feat|fix|refactor|chore|docs|style|test|perf|build|ci|revert):<br>[[:space:]].* ]]; then<br>
+        echo "Commit message does not contain a valid commit type tag."<br>
+        echo "Valid commit types: feat, fix, refactor, chore, docs, style, test, perf, build, ci, revert"<br>
+        exit 1<br>
+    fi<br>
+}
